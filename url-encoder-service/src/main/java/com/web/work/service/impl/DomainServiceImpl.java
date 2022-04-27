@@ -34,6 +34,10 @@ public class DomainServiceImpl implements DomainService {
         String code64 = StringUtil.generate62RadixCode(fullUrl);
         // save the mapping of domain
         Cache cache = localCache.getLocalCache();
+        Cache.ValueWrapper valueWrapper = cache.get(code64);
+        if (Objects.nonNull(valueWrapper) && Objects.nonNull(valueWrapper.get())) {
+            return domain + code64;
+        }
         cache.put(code64, fullUrl);
         return domain + code64;
     }
