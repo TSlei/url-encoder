@@ -17,6 +17,7 @@ target/
 *.pid
 *.cmd
 mvnw
+.DS_Store
 
 ### NetBeans ###
 nbproject/private/
